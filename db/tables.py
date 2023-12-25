@@ -1,4 +1,5 @@
 from db_connector import *
+
 connection = connect_to_db()
 
 if connection.is_connected():
@@ -62,12 +63,12 @@ tables.append(music_table)
 for table in tables:
     cursor.execute(table)
 
-# Commit the changes to the database
+# Commit the changes to the db
 connection.commit()
 
 cursor.close()
 
-# Close the database connection
+# Close the db connection
 connection.close()
 
 print("Completed Migrations")

@@ -1,5 +1,5 @@
 from bottle import Bottle, request, template, redirect, get, post
-from database.db_connector import connect_to_db
+from db.db_connector import *
 from validations.user_validation import SignUpUserForm
 
 
