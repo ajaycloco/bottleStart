@@ -1,5 +1,3 @@
-from db_connector import *
-
 connection = connect_to_db()
 
 if connection.is_connected():

@@ -10,5 +10,5 @@ class SignUpUserForm(Form):
     address = StringField('address', validators=[InputRequired()])
     phone = StringField('phone', validators=[InputRequired()])
     password = PasswordField('password', validators=[InputRequired()])
-    confirm_password = PasswordField('confirm_password', validators=[InputRequired(), EqualTo('password','Password and Password Confirmaton must match')])
+    confirm_password = PasswordField('confirm_password', validators=[InputRequired(), EqualTo('password', 'Password and Password Confirmaton must match')])
 
