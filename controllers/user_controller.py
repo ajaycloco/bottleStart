@@ -1,3 +1,4 @@
+from decorators import auth_route
 from .application_controller import ApplicationController
 from bottle import request, response, HTTPResponse
 from db_engine import sql_engine
@@ -6,6 +7,7 @@ from passlib.hash import pbkdf2_sha256
 
 
 class UserController(ApplicationController):
+    @auth_route
     def signup(self):
         data = request.json
         password = pbkdf2_sha256.hash(data['password'])

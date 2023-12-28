@@ -1,5 +1,3 @@
-import datetime
-
 from bottle import request, HTTPResponse
 from models.user import User
 from .application_controller import ApplicationController
@@ -52,7 +50,7 @@ class AuthController(ApplicationController):
                     'status': 200,
                     'message': 'Login Successful',
                     'jwt_access_token': {
-                        'access_token': token,
+                        'bearer_token': token,
                         'expiration_date': str(expiration_date)
                     }
                 }
