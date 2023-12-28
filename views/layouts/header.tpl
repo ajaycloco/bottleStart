@@ -10,23 +10,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-lg-6">
-                <h2 class="text-center">Login Form</h2>
-                <form class="form-control" method="POST" action="/login">
-                    <div class="form-group mb-2">
-                        <input type="text" class="form-control" name="email" placeholder="eg:email@example.com"/>
-                    </div>
-                     <div class="form-group mb-2">
-                        <input type="password" class="form-control" name="password" placeholder="*********"/>
-                    </div>
-                     <div class="form-group mb-2">
-                        <button type="submit" class="btn btn-outline-success">Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        </ul>
     </div>
-</body>
-</html>
+  </div>
+</nav>
+    <div class="container mt-5">
+

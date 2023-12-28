@@ -10,7 +10,7 @@ class User(BaseModel):
     id: Mapped[int] = MappedColumn(BIGINT, primary_key=True, autoincrement=True)
     full_name: Mapped[str] = MappedColumn(VARCHAR(255), nullable=False)
     email: Mapped[str] = MappedColumn(VARCHAR(255), nullable=False, unique=True)
-    password: Mapped[str] = MappedColumn(VARCHAR(255), nullable=False)
+    password: Mapped[str] = MappedColumn(VARCHAR(500), nullable=False)
     status: Mapped[bool] = MappedColumn(BOOLEAN, default=False)
 
 
