@@ -7,7 +7,6 @@ from passlib.hash import pbkdf2_sha256
 
 
 class UserController(ApplicationController):
-    @auth_route
     def signup(self):
         data = request.json
         password = pbkdf2_sha256.hash(data['password'])
@@ -37,3 +36,4 @@ class UserController(ApplicationController):
                 'message': message
             }
             return HTTPResponse(body=res)
+
