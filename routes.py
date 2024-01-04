@@ -11,6 +11,7 @@ def setup_routes(app):
 
     app.route('/users/create', 'POST', UserController().signup)
 
+    app.route('/artists', 'GET', ArtistController().get_all)
     app.route('/artists/create', 'POST', ArtistController().create)
     app.route('/artists/update', 'POST', ArtistController().update)
     app.route('/artists/<artist_id>/delete', 'GET', ArtistController().delete)

@@ -1,11 +1,24 @@
+import json
+
 from .application_controller import ApplicationController
 from bottle import request, HTTPResponse
 from db_engine import sql_engine
 from models.artist import Artist
 from decorators import auth_route
+from helpers import orm_to_json
 
 
 class ArtistController(ApplicationController):
+
+    def get_all(self):
+        session = sql_engine()
+        artists = session.query(Artist).all()
+        artists_data = [orm_to_json(artist) for artist in artists]
+        res_body = {
+            'success': True,
+            'data': artists_data
+        }
+        return HTTPResponse(body=res_body)
 
     @auth_route
     def create(self):
