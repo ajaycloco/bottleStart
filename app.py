@@ -15,11 +15,11 @@ class MainApp:
         setup_routes(self.app)
 
         # set up session
-        session_options = {
-            'session.type': 'memory',  # Use in-memory storage
-            'session.auto': True,
-        }
-        SessionMiddleware(self.app, session_options)
+        # session_options = {
+        #     'session.type': 'memory',  # Use in-memory storage
+        #     'session.auto': True,
+        # }
+        # SessionMiddleware(self.app, session_options)
 
         # run the test
         self.app.run(host=self.host, port=self.port, debug=True, reloader=True)

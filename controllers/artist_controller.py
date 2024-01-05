@@ -28,16 +28,25 @@ class ArtistController(ApplicationController):
         success = False
         issue = None
         try:
-            stmt = Artist(
-                name=data['name'],
-                dob=data['dob'],
-                address=data['address'],
-                gender=data['gender'],
-                first_release_year=data['first_release_year'],
-                no_of_albums_released=data['no_of_albums_released']
-            )
-            session.add(stmt)
-            session.commit()
+            # way one
+            # stmt = Artist(
+            #     name=data['name'],
+            #     dob=data['dob'],
+            #     address=data['address'],
+            #     gender=data['gender'],
+            #     first_release_year=data['first_release_year'],
+            #     no_of_albums_released=data['no_of_albums_released']
+            # )
+
+            # way two
+            # **data is unpacking dictionary and allows passing key value pair to data
+            # stmt = Artist(**data)
+            # session.add(stmt)
+            # session.commit()
+
+            # way three best
+            # mass assignment by creating a class method create inside the Artist model
+            Artist.create(data, session)
             message = "Artist Created Successfully"
             success = True
         except Exception as e:
@@ -61,18 +70,12 @@ class ArtistController(ApplicationController):
         session = sql_engine()
         try:
             artist = session.query(Artist).filter_by(id=data['artist_id'])
-            if artist:
-                artist.update({
-                    'name': data['name'],
-                    'dob': data['dob'],
-                    'address': data['address'],
-                    'gender': data['gender'],
-                    'first_release_year': data['first_release_year'],
-                    'no_of_albums_released': data['no_of_albums_released']
-                })
-                session.commit()
+            if artist.first() is not None:
+                Artist.update(data, session, artist)
                 success = True
                 message = "Artist Updated Successfully"
+            else:
+                issue = "Invalid Artist id"
 
         except Exception as e:
             session.rollback()
