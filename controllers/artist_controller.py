@@ -11,6 +11,7 @@ from helpers import orm_to_json
 class ArtistController(ApplicationController):
 
     def get_all(self):
+        print('hello')
         session = sql_engine()
         artists = session.query(Artist).all()
         artists_data = [orm_to_json(artist) for artist in artists]
